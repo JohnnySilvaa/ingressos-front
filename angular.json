@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ingresso": {
+    "ingressos": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ingresso",
+            "outputPath": "dist/ingressos",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ingresso:build"
+            "browserTarget": "ingressos:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ingresso:build:production"
+              "browserTarget": "ingressos:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ingresso:build"
+            "browserTarget": "ingressos:build"
           }
         },
         "test": {
@@ -110,15 +110,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ingresso:serve"
+            "devServerTarget": "ingressos:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ingresso:serve:production"
+              "devServerTarget": "ingressos:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "ingresso"
+  "defaultProject": "ingressos"
 }
