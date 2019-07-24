@@ -1,0 +1,11 @@
+@import '~@angular/material/theming';
+
+
+@include mat-core();
+
+
+$green-theme-primary: mat-palette($mat-green);
+$green-theme-accent: mat-palette($mat-cyan);
+$green-theme-warm: mat-palette($mat-red);
+
+$green-theme: mat-light-theme($green-theme-primary, $green-theme-accent, $green-theme-warm);

@@ -1,0 +1,12 @@
+@import '~@angular/material/theming';
+
+
+
+@include mat-core();
+
+
+$deep-purple-theme-primary: mat-palette($mat-deep-purple);
+$deep-purple-theme-accent: mat-palette($mat-pink);
+$deep-purple-theme-warm: mat-palette($mat-red);
+
+$deep-purple-theme: mat-dark-theme($deep-purple-theme-primary, $deep-purple-theme-accent, $deep-purple-theme-warm);
