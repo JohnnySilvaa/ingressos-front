@@ -1,2 +1,6 @@
 @import './assets/themes/theme/theme.scss';
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+:focus {outline: none;} // Remove browser default;

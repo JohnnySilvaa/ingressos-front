@@ -26,6 +26,7 @@ $app-typography: mat-typography-config(
 
 @include mat-core($app-typography);
 
+
 .blue-theme{
     @include angular-material-theme($blue-theme);
 }

@@ -1,0 +1,42 @@
+.home-link {
+    color: white;
+    font-weight: normal;
+    text-decoration: none;
+  }
+  
+  mat-sidenav-container {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+  }
+  
+  mat-sidenav {
+    position: fixed;
+    top: 64px;
+    bottom: 0;
+    left: 0;
+    padding: 0;
+    min-width: 260px;
+    &.collapsed {
+      top: 56px;
+    }
+    text-align: center;
+  }
+  mat-sidenav-content {
+    padding-top: 70px;
+    min-height: calc(100vh - 70px);
+  }
+  
+  // Fix toolbar to top of screen
+  mat-toolbar.mat-toolbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+    font-size: 20px;
+    mat-toolbar-row {
+      padding: 0 16px 0 0;
+    }
+  }

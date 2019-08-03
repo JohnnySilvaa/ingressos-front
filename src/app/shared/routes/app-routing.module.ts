@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-
 const routes: Routes = [
+  
+  {path: 'welcome', loadChildren: '../../modules/welcome/welcome.module#WelcomeModule'},
+  {path: 'home', loadChildren: '../../modules/home/home.module#HomeModule'} ,
+  {path: 'ticket', loadChildren: '../../modules/ticket/ticket.module#TicketModule'},
+  
   {
     path: '',
-    children: [
-      {path: '', loadChildren: '../../modules/home/home.module#HomeModule'}
-    ]
+    redirectTo: '/welcome',
+    pathMatch: 'full'
   }
 ];
 

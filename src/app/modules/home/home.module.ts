@@ -3,19 +3,19 @@ import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { HomeComponent } from './home.component';
-import { HomeLayoutComponent } from '../../layout/home-layout/home-layout.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { AngularMaterialModule } from '../../shared/modules/angular-material.module';
-import { SidenavComponent } from 'src/app/layout/home-layout/sidenav/sidenav.component';
+import { HomeLayoutComponent } from 'src/app/layout/home-layout/home-layout.component';
+import { HomeLayoutSidenavComponent } from 'src/app/layout/home-layout/home-layout-sidenav/home-layout-sidenav.component';
 
 @NgModule({
-  declarations: [HomeComponent, HomeLayoutComponent, SidenavComponent],
+  declarations: [HomeComponent, HomeLayoutComponent, HomeLayoutSidenavComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
-    AngularMaterialModule
+    AngularMaterialModule,
   ],
-  exports: [HomeComponent, HomeLayoutComponent, SidenavComponent],
+  exports: [HomeComponent, HomeLayoutComponent, HomeLayoutSidenavComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
 })

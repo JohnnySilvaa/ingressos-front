@@ -1,0 +1,36 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav class="sidenav" mode="side">
+        <mat-nav-list>
+            <mat-nav-list>
+                <h4 matLine routerLink="/welcome" [routerLinkActiveOptions]="{ exact: true }"
+                    routerLinkActive="active-link">
+                    Home
+                </h4>
+            </mat-nav-list>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <mat-toolbar-row>
+                <button mat-icon-button>
+                    <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+                </button>
+                <span fxFlex>
+                    <a class="home-link" routerLink=".">{{title}}</a>
+                </span>
+                <span>
+                    <button mat-icon-button [matMenuTriggerFor]="menu">
+                        <mat-icon>format_color_fill</mat-icon>
+                    </button>
+
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item>
+                            <div mat-menu-item></div>
+                        </button>
+                    </mat-menu>
+                </span>
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

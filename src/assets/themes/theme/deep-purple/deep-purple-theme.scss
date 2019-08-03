@@ -1,12 +1,24 @@
+@import 'deep-purple-palette.scss';
 @import '~@angular/material/theming';
-
 
 
 @include mat-core();
 
 
-$deep-purple-theme-primary: mat-palette($mat-deep-purple);
-$deep-purple-theme-accent: mat-palette($mat-pink);
+$deep-purple-theme-primary: mat-palette($deep-purple-palette);
+$deep-purple-theme-accent: mat-palette($deep-purple-palette, A100, A300);
 $deep-purple-theme-warm: mat-palette($mat-red);
 
 $deep-purple-theme: mat-dark-theme($deep-purple-theme-primary, $deep-purple-theme-accent, $deep-purple-theme-warm);
+
+.mat-toolbar{
+    position: fixed;
+    top:0;
+    min-height: 75px;
+    padding: 0 20px;
+    display: flex;
+    justify-content:  space-around;
+    align-items: center;
+    z-index: 2;
+    box-shadow: 0 3px 5px -1px rgba(255, 255, 255, .5);
+}
