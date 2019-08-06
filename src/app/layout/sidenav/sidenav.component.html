@@ -2,7 +2,7 @@
     <mat-sidenav #sidenav class="sidenav" mode="side">
         <mat-nav-list>
             <mat-nav-list>
-                <h4 matLine routerLink="/welcome" [routerLinkActiveOptions]="{ exact: true }"
+                <h4 matLine routerLink="/home" [routerLinkActiveOptions]="{ exact: true }"
                     routerLinkActive="active-link">
                     Home
                 </h4>
@@ -16,7 +16,7 @@
                     <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
                 </button>
                 <span fxFlex>
-                    <a class="home-link" routerLink=".">{{title}}</a>
+                    <a class="home-link" routerLink=".">Ingresso</a>
                 </span>
                 <span>
                     <button mat-icon-button [matMenuTriggerFor]="menu">
@@ -31,6 +31,7 @@
                 </span>
             </mat-toolbar-row>
         </mat-toolbar>
+        Title: {{getTitle()}}
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

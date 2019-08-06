@@ -1,21 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = this.getTitle();
+export class AppComponent implements OnInit {
+  title = 'ingressos';
 
-  constructor(private titleService: Title){}
+  constructor(private titleService: Title, private router: Router,
+    private activatedRoute: ActivatedRoute) {}
 
-  public setTitle(newTitle: string){
-    this.titleService.setTitle(newTitle);
-  }
 
-  public getTitle(){
-    this.titleService.getTitle();
+
+  ngOnInit() {
+    const appTitle = this.titleService.getTitle();
+    this.router
+      .events.pipe(
+        filter(event => event instanceof NavigationEnd),
+        map(() => {
+          let child = this.activatedRoute.firstChild;
+          console.log(child.firstChild)
+          console.log(child.snapshot.data['title'])
+          while (child.firstChild) {
+            child = child.firstChild;
+          }
+          if (child.snapshot.data['title']) {
+            return child.snapshot.data['title'];
+          }
+          return appTitle;
+        })
+      ).subscribe((ttl: string) => {
+        this.titleService.setTitle(ttl);
+      });
   }
 }

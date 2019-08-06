@@ -7,12 +7,15 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./sidenav.component.scss']
 })
 export class SidenavComponent implements OnInit {
-
   
   constructor(private titleService: Title){}
-
+  // title;
 
   ngOnInit() {
+    // this.title = this.titleService.getTitle();
   }
 
+  getTitle(){
+    return this.titleService.getTitle()
+  }
 }

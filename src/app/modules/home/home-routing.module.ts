@@ -7,10 +7,8 @@ import { HomeLayoutComponent } from 'src/app/layout/home-layout/home-layout.comp
 const routes: Routes = [
     {
         path: '',
-        component: HomeLayoutComponent,
-        children: [
-            {path: '', component: HomeComponent}
-        ]
+        component: HomeComponent,
+        data: {title: 'Home'}
     }
 ]
 

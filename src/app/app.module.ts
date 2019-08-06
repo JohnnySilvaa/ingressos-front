@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './shared/routes/app-routing.module';
@@ -14,6 +14,7 @@ import { SidenavComponent } from './layout/sidenav/sidenav.component';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { TitleComponent } from './shared/ui/title/title.component';
 import { CommomModule } from './shared/commom.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -30,10 +31,10 @@ import { CommomModule } from './shared/commom.module';
     BrowserAnimationsModule,
     FlexLayoutModule,
     CommomModule,
-    AngularMaterialModule
+    AngularMaterialModule,
   ],
   exports: [AdminLayoutComponent, AdminLayoutSidenavComponent],
-  providers: [],
+  providers: [Title],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
