@@ -3,8 +3,21 @@
 @include mat-core();
 
 
-$blue-theme-primary: mat-palette($mat-blue);
-$blue-theme-accent:  mat-palette($mat-blue, A400);
-$blue-theme-warn:    mat-palette($mat-red);
-$blue-theme: mat-light-theme($blue-theme-primary, $blue-theme-accent, $blue-theme-warn);
+$app-theme-blue-primary: mat-palette($mat-blue);
+$app-theme-blue-accent:  mat-palette($mat-blue, A400);
+$app-theme-blue-warn:    mat-palette($mat-red);
+$app-theme-blue: mat-light-theme($app-theme-blue-primary, $app-theme-blue-accent, $app-theme-blue-warn);
 
+
+
+@mixin mat-grid-mixin($theme) {
+    $primary: map-get(
+      $map: $theme,
+      $key: primary
+    );
+  
+    mat-grid-tile {
+      background-color: mat-color($primary, 500);
+      color: mat-contrast($primary, 500);
+    }
+  }

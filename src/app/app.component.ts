@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
-import { filter, map } from 'rxjs/operators';
+
+import { TitleService } from './shared/helpers/title.service';
+import { ColorPickerService } from './shared/helpers/color-picker.service';
 
 @Component({
   selector: 'app-root',
@@ -10,31 +10,12 @@ import { filter, map } from 'rxjs/operators';
 })
 export class AppComponent implements OnInit {
   title = 'ingressos';
+  themeClass;
 
-  constructor(private titleService: Title, private router: Router,
-    private activatedRoute: ActivatedRoute) {}
-
-
+  constructor(private titleService: TitleService, private colorPicker: ColorPickerService ) {}
 
   ngOnInit() {
-    const appTitle = this.titleService.getTitle();
-    this.router
-      .events.pipe(
-        filter(event => event instanceof NavigationEnd),
-        map(() => {
-          let child = this.activatedRoute.firstChild;
-          console.log(child.firstChild)
-          console.log(child.snapshot.data['title'])
-          while (child.firstChild) {
-            child = child.firstChild;
-          }
-          if (child.snapshot.data['title']) {
-            return child.snapshot.data['title'];
-          }
-          return appTitle;
-        })
-      ).subscribe((ttl: string) => {
-        this.titleService.setTitle(ttl);
-      });
+   this.titleService.getTitle();
+   this.themeClass = this.colorPicker.getColorClass();
   }
 }

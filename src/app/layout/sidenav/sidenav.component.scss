@@ -1,3 +1,5 @@
+@import '../../../assets/themes/theme/theme.scss';
+
 .home-link {
     color: white;
     font-weight: normal;
@@ -40,3 +42,20 @@
       padding: 0 16px 0 0;
     }
   }
+
+  .color-swatch-primary, header {
+    background-color: mat-color($app-theme-primary);
+    
+  }
+  .color-swatch-blue, header {
+    background-color: mat-color($app-theme-blue-primary);
+  }
+  .color-swatch-green, header {
+    background-color: mat-color($app-theme-green-primary);
+  }
+  .color-swatch-deep-purple, header {
+    background-color: mat-color($app-theme-deep-purple-primary);
+  }
+
+
+  

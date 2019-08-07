@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { ColorPickerService } from 'src/app/shared/helpers/color-picker.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -8,14 +9,23 @@ import { Title } from '@angular/platform-browser';
 })
 export class SidenavComponent implements OnInit {
   
-  constructor(private titleService: Title){}
-  // title;
+  constructor(private titleService: Title, private colorPicker: ColorPickerService){}
 
   ngOnInit() {
-    // this.title = this.titleService.getTitle();
   }
 
   getTitle(){
     return this.titleService.getTitle()
+  }
+
+  pickColor(color: string){
+    let colorTheme = '';
+
+    if(color !== ''){
+      colorTheme = `-${color}`
+    }
+    this.colorPicker.setColorClass(
+      `app-theme${colorTheme}`
+    )
   }
 }

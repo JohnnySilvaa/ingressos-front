@@ -5,20 +5,22 @@
 @include mat-core();
 
 
-$deep-purple-theme-primary: mat-palette($deep-purple-palette);
-$deep-purple-theme-accent: mat-palette($deep-purple-palette, A100, A300);
-$deep-purple-theme-warm: mat-palette($mat-red);
+$app-theme-deep-purple-primary: mat-palette($deep-purple-palette);
+$app-theme-deep-purple-accent: mat-palette($deep-purple-palette, A100, A300);
+$app-theme-deep-purple-warm: mat-palette($mat-red);
 
-$deep-purple-theme: mat-dark-theme($deep-purple-theme-primary, $deep-purple-theme-accent, $deep-purple-theme-warm);
+$app-theme-deep-purple: mat-dark-theme($app-theme-deep-purple-primary, 
+$app-theme-deep-purple-accent, $app-theme-deep-purple-warm);
 
-.mat-toolbar{
-    position: fixed;
-    top:0;
-    min-height: 75px;
-    padding: 0 20px;
-    display: flex;
-    justify-content:  space-around;
-    align-items: center;
-    z-index: 2;
-    box-shadow: 0 3px 5px -1px rgba(255, 255, 255, .5);
-}
+
+@mixin mat-grid-mixin($theme) {
+    $primary: map-get(
+      $map: $theme,
+      $key: primary
+    );
+  
+    mat-grid-tile {
+      background-color: mat-color($primary, 500);
+      color: mat-contrast($primary, 500);
+    }
+  }

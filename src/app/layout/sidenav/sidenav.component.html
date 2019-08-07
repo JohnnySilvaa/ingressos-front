@@ -24,14 +24,29 @@
                     </button>
 
                     <mat-menu #menu="matMenu">
-                        <button mat-menu-item>
-                            <div mat-menu-item></div>
+                        <button mat-menu-item (click)="pickColor('')">
+                            <div mat-menu-item class="color-swatch color-swatch-primary"></div>
+                        </button>
+                        <button mat-menu-item (click)="pickColor('green')">
+                            <div mat-menu-item class="color-swatch color-swatch-green"></div>
+                        </button>
+                        <button mat-menu-item (click)="pickColor('blue')">
+                            <div mat-menu-item class="color-swatch color-swatch-blue"></div>
+                        </button>
+                        <button mat-menu-item (click)="pickColor('deep-purple')">
+                            <div mat-menu-item class="color-swatch color-swatch-deep-purple"></div>
                         </button>
                     </mat-menu>
                 </span>
             </mat-toolbar-row>
         </mat-toolbar>
-        Title: {{getTitle()}}
-        <router-outlet></router-outlet>
+        <div fxLayout="column">
+            <header>
+                {{getTitle()}}
+            </header>
+            <main fxLayoutAlign="center center">
+                <router-outlet></router-outlet>
+            </main>
+        </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

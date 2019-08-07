@@ -27,18 +27,28 @@ $app-typography: mat-typography-config(
 @include mat-core($app-typography);
 
 
-.blue-theme{
-    @include angular-material-theme($blue-theme);
+.app-theme-blue{
+    $theme: $app-theme-blue;
+    @include angular-material-theme($app-theme-blue);
+    @include mat-grid-mixin($theme);
 }
 
-.deep-purple-theme{
-    @include angular-material-theme($deep-purple-theme);
+.app-theme-deep-purple{
+    $theme: $app-theme-deep-purple;
+    @include angular-material-theme($app-theme-deep-purple);
+    @include mat-grid-mixin($theme);
+
 }
 
-.green-theme{
-    @include angular-material-theme($green-theme);
+.app-theme-green{
+    $theme: $app-theme-green;
+    @include angular-material-theme($app-theme-green);
+    @include mat-grid-mixin($theme);
+
 }
 
-.default-theme{
-    @include angular-material-theme($default-theme);
+.app-theme{
+    $theme: $app-theme;
+    @include angular-material-theme($app-theme);
+    @include mat-grid-mixin($theme);
 }
