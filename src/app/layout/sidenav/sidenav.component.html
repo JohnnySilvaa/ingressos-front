@@ -41,8 +41,8 @@
             </mat-toolbar-row>
         </mat-toolbar>
         <div fxLayout="column">
-            <header>
-                {{getTitle()}}
+            <header class="{{getColorHeader()}} title">
+                <h2>{{getTitle()}}</h2>
             </header>
             <main fxLayoutAlign="center center">
                 <router-outlet></router-outlet>

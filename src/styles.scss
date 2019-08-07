@@ -1,6 +1,35 @@
 @import './assets/themes/theme/theme.scss';
 
 
+
+.app-theme-blue{
+    $theme: $app-theme-blue;
+    @include angular-material-theme($app-theme-blue);
+    @include mat-grid-mixin($theme);
+}
+
+.app-theme-deep-purple{
+    $theme: $app-theme-deep-purple;
+    @include angular-material-theme($app-theme-deep-purple);
+    @include mat-grid-mixin($theme);
+
+}
+
+.app-theme-green{
+    $theme: $app-theme-green;
+    @include angular-material-theme($app-theme-green);
+    @include mat-grid-mixin($theme);
+
+}
+
+.app-theme{
+    $theme: $app-theme;
+    @include angular-material-theme($app-theme);
+    @include mat-grid-mixin($theme);
+}
+
+
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 :focus {outline: none;} // Remove browser default;

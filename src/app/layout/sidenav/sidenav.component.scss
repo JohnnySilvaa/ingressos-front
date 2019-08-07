@@ -1,6 +1,6 @@
 @import '../../../assets/themes/theme/theme.scss';
 
-.home-link {
+.home-link, .title {
     color: white;
     font-weight: normal;
     text-decoration: none;
@@ -25,7 +25,7 @@
     text-align: center;
   }
   mat-sidenav-content {
-    padding-top: 70px;
+    padding-top: 64px;
     min-height: calc(100vh - 70px);
   }
   
@@ -36,25 +36,38 @@
     right: 0;
     left: 0;
     z-index: 10;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 
+    0px 6px 10px 0px rgba(0, 0, 0, 0.14), 
+    0px 1px 18px 0px rgba(0, 0, 0, 0.12);  
     font-size: 20px;
     mat-toolbar-row {
       padding: 0 16px 0 0;
     }
   }
 
-  .color-swatch-primary, header {
+  .color-swatch-primary, .header-app-theme{
     background-color: mat-color($app-theme-primary);
     
   }
-  .color-swatch-blue, header {
+  .color-swatch-blue, .header-app-theme-blue {
     background-color: mat-color($app-theme-blue-primary);
   }
-  .color-swatch-green, header {
+  .color-swatch-green, .header-app-theme-green {
     background-color: mat-color($app-theme-green-primary);
   }
-  .color-swatch-deep-purple, header {
+  .color-swatch-deep-purple, .header-app-theme-deep-purple {
     background-color: mat-color($app-theme-deep-purple-primary);
+  }
+
+  header{
+   padding-left: 20px; 
+   display: flex;
+   justify-content: flex-start; 
+  }
+
+  h4{
+    color: white;
+    cursor: pointer;
   }
 
 
