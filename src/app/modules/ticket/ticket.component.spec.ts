@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeLayoutSidenavComponent } from './home-layout-sidenav.component';
+import { TicketComponent } from './ticket.component';
 
-describe('HomeLayoutSidenavComponent', () => {
-  let component: HomeLayoutSidenavComponent;
-  let fixture: ComponentFixture<HomeLayoutSidenavComponent>;
+describe('TicketComponent', () => {
+  let component: TicketComponent;
+  let fixture: ComponentFixture<TicketComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeLayoutSidenavComponent ]
+      declarations: [ TicketComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeLayoutSidenavComponent);
+    fixture = TestBed.createComponent(TicketComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

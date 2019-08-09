@@ -11,6 +11,9 @@ $app-theme-green-warm: mat-palette($mat-red);
 $app-theme-green: mat-light-theme($app-theme-green-primary, $app-theme-green-accent, 
 $app-theme-green-warm);
 
+$header-blue: mat-color($green-palette, 400);
+
+
 // .mat-drawer{
 //     background-color: mat-color($app-theme-green-primary, 400);
 // }

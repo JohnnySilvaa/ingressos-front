@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 import { HomeComponent } from './home.component';
-import { HomeLayoutComponent } from 'src/app/layout/home-layout/home-layout.component';
 const routes: Routes = [
     {
         path: '',

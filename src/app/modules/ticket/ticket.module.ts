@@ -3,17 +3,14 @@ import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
-import { MovieComponent } from './movie/movie.component';
+import { MovieComponent } from './pages/movie/movie.component';
 import { TicketRoutingModule } from './ticket-routing-module';
-import { CreateMovieComponent } from './movie/create-movie/create-movie.component';
-import { AdminLayoutComponent } from 'src/app/layout/admin-layout/admin-layout.component';
+import { CreateMovieComponent } from './pages/movie/create-movie/create-movie.component';
 import { AngularMaterialModule } from 'src/app/shared/modules/angular-material.module';
-import { AdminLayoutSidenavComponent } from 'src/app/layout/admin-layout/admin-layout-sidenav/admin-layout-sidenav.component';
-import { TicketHomeComponent } from './ticket-home/ticket-home.component';
 
 
 @NgModule({
-  declarations: [MovieComponent, CreateMovieComponent, TicketHomeComponent],
+  declarations: [MovieComponent, CreateMovieComponent,],
   imports: [
     CommonModule,
     TicketRoutingModule,

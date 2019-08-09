@@ -1,10 +1,8 @@
 @import '../../../assets/themes/theme/theme.scss';
 
-.home-link, .title {
-    color: white;
-    font-weight: normal;
-    text-decoration: none;
-  }
+.title {
+    color: white
+}
   
   mat-sidenav-container {
     position: fixed;
@@ -40,9 +38,7 @@
     0px 6px 10px 0px rgba(0, 0, 0, 0.14), 
     0px 1px 18px 0px rgba(0, 0, 0, 0.12);  
     font-size: 20px;
-    mat-toolbar-row {
-      padding: 0 16px 0 0;
-    }
+
   }
 
   .color-swatch-primary, .header-app-theme{
@@ -59,6 +55,12 @@
     background-color: mat-color($app-theme-deep-purple-primary);
   }
 
+  
+
+  head{
+    background-color: $header-blue;
+  }
+
   header{
    padding-left: 20px; 
    display: flex;
@@ -69,6 +71,31 @@
     color: white;
     cursor: pointer;
   }
+
+  .toolbar-start{  
+      width: 30%;
+      a{
+        color: white;
+        font-weight: normal;
+        text-decoration: none;
+      }
+  
+  }
+
+  .toolbar-end{
+    width: 17%;
+  }
+
+  .icon-github{
+    background-repeat: no-repeat;
+    display: inline-block;
+    fill: currentColor;
+    height: 24px;
+    width: 24px;
+    line-height: 24px;
+    vertical-align: middle;
+  }
+
 
 
   

@@ -11,33 +11,53 @@
     </mat-sidenav>
     <mat-sidenav-content>
         <mat-toolbar color="primary">
-            <mat-toolbar-row>
-                <button mat-icon-button>
-                    <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
-                </button>
-                <span fxFlex>
-                    <a class="home-link" routerLink=".">Ingresso</a>
-                </span>
-                <span>
-                    <button mat-icon-button [matMenuTriggerFor]="menu">
-                        <mat-icon>format_color_fill</mat-icon>
+            <mat-toolbar-row fxLayoutAlign="space-between center">
+                <div fxLayoutAlign="space-between center" class="toolbar-start">
+                    <button mat-icon-button>
+                        <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
                     </button>
+                    <span>
+                        <a routerLink=".">Ingresso</a>
+                    </span>
+                    <span>
+                        <a routerLink=".">Comprar</a>
+                    </span>
+                    <span>
+                        <a routerLink="ticket">Login</a>
+                    </span>
+                </div>
+                <div fxLayoutAlign="space-between end" class="toolbar-end">
+                    <span>
+                        <button mat-icon-button [matMenuTriggerFor]="menu">
+                            <mat-icon>format_color_fill</mat-icon>
+                        </button>
 
-                    <mat-menu #menu="matMenu">
-                        <button mat-menu-item (click)="pickColor('')">
-                            <div mat-menu-item class="color-swatch color-swatch-primary"></div>
-                        </button>
-                        <button mat-menu-item (click)="pickColor('green')">
-                            <div mat-menu-item class="color-swatch color-swatch-green"></div>
-                        </button>
-                        <button mat-menu-item (click)="pickColor('blue')">
-                            <div mat-menu-item class="color-swatch color-swatch-blue"></div>
-                        </button>
-                        <button mat-menu-item (click)="pickColor('deep-purple')">
-                            <div mat-menu-item class="color-swatch color-swatch-deep-purple"></div>
-                        </button>
-                    </mat-menu>
-                </span>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item (click)="pickColor('')">
+                                <div mat-menu-item class="color-swatch color-swatch-primary"></div>
+                            </button>
+                            <button mat-menu-item (click)="pickColor('green')">
+                                <div mat-menu-item class="color-swatch color-swatch-green"></div>
+                            </button>
+                            <button mat-menu-item (click)="pickColor('blue')">
+                                <div mat-menu-item class="color-swatch color-swatch-blue"></div>
+                            </button>
+                            <button mat-menu-item (click)="pickColor('deep-purple')">
+                                <div mat-menu-item class="color-swatch color-swatch-deep-purple"></div>
+                            </button>
+                        </mat-menu>
+                    </span>
+                    <span>
+                        <a mat-icon-button href="https://github.com/JohnnySilvaa/ingressos-front">
+                            <mat-icon class="icon-github"></mat-icon>
+                        </a>
+                    </span>
+                    <span>
+                        <a mat-icon-button href="https://www.linkedin.com/in/johnny-ferreira-66b582167/">
+                            <mat-icon class="icon-linkedin"></mat-icon>
+                        </a>
+                    </span>
+                </div>
             </mat-toolbar-row>
         </mat-toolbar>
         <div fxLayout="column">

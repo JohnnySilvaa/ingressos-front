@@ -1,21 +1,14 @@
 import { NgModule} from "@angular/core";
 import { RouterModule, Routes } from '@angular/router';
-
-import { MovieComponent } from "./movie/movie.component";
-import { CreateMovieComponent } from './movie/create-movie/create-movie.component';
-import { AdminLayoutComponent } from '../../layout/admin-layout/admin-layout.component';
-import { TicketHomeComponent } from './ticket-home/ticket-home.component';
+import { TicketComponent } from './ticket.component';
 
 
 const routes: Routes = [
     {
         path: '',
-        component: AdminLayoutComponent,
+        component: TicketComponent,
         children: [
-            {path: '', redirectTo: 'ticket-home', pathMatch: 'full'},
-            {path: 'movie', component: MovieComponent},
-            {path: 'create-movie', component: CreateMovieComponent},
-            {path: 'ticket-home', component: TicketHomeComponent}
+            {path: '', loadChildren: './pages/pages.module#PagesModule'}
         ]
     }
 ]
