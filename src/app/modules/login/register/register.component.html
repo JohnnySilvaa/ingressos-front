@@ -1,0 +1,38 @@
+<div class="login-container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Cadastro de usuário</mat-card-title>
+        </mat-card-header>
+
+        <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit(registerForm.value)" fxLayout="column"
+            fxLayoutAlign="center center">
+            <mat-card-content>
+                <mat-form-field>
+                    <input matInput type="email" placeholder="Email" formControlName="email" [errorStateMatcher]="matcher">
+                    <mat-error>
+                        <span *ngIf="!registerForm.get('email').valid && registerForm.get('email').touched">
+                            Por favor entre com o seu email.
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="password" placeholder="Senha" formControlName="password" [errorStateMatcher]="matcher">
+                    <mat-error>
+                        <span *ngIf="!registerForm.get('password').valid && registerForm.get('password').touched">
+                            Por favor entre com a sua senha.
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Escolha uma permissão...</mat-label>
+                    <mat-select [(value)]="selected">
+                        <mat-option [value]="roles" *ngFor="let roles of Roles">
+                            {{roles}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </mat-card-content>
+            <button [disabled]="!registerForm.valid" mat-raised-button color="primary">Cadastrar</button>
+        </form>
+    </mat-card>
+</div>

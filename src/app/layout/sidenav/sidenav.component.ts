@@ -11,7 +11,6 @@ export class SidenavComponent implements OnInit {
   
   constructor(private titleService: Title, private colorPicker: ColorPickerService){}
 
-  
 
   ngOnInit() {
   }

@@ -12,6 +12,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { SidenavComponent } from './layout/sidenav/sidenav.component';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { CommomModule } from './shared/commom.module';
+import { AuthGuardService } from './shared/auth/auth-guard.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,17 +30,20 @@ import { CommomModule } from './shared/commom.module';
     FlexLayoutModule,
     CommomModule,
     AngularMaterialModule,
+    HttpClientModule
+    
   ],
   exports: [],
   providers: [
     Title,
-    TitleService  
+    TitleService,
+    AuthGuardService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
   constructor(overlayContainer: OverlayContainer){
-    overlayContainer.getContainerElement().classList.add('default-theme');
+    overlayContainer.getContainerElement().classList.add('app-theme');
   }
 }

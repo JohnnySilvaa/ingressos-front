@@ -4,28 +4,38 @@
 
 .app-theme-blue{
     $theme: $app-theme-blue;
+    $color: $app-theme-blue-primary;
     @include angular-material-theme($app-theme-blue);
     @include mat-grid-mixin($theme);
+    @include color-link($color);
+
 }
 
 .app-theme-deep-purple{
+    $color: mat-palette($deep-purple-palette, 400);
     $theme: $app-theme-deep-purple;
     @include angular-material-theme($app-theme-deep-purple);
     @include mat-grid-mixin($theme);
+    @include color-link($color);
 
 }
 
 .app-theme-green{
+    $color: $app-theme-green-primary;
     $theme: $app-theme-green;
     @include angular-material-theme($app-theme-green);
     @include mat-grid-mixin($theme);
+    @include color-link($color);
 
 }
 
 .app-theme{
+    $color: $app-theme-primary;
     $theme: $app-theme;
     @include angular-material-theme($app-theme);
     @include mat-grid-mixin($theme);
+    @include color-link($color);
+
 }
 
 

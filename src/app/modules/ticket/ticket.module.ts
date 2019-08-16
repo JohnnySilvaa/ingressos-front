@@ -3,22 +3,28 @@ import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
-import { MovieComponent } from './pages/movie/movie.component';
 import { TicketRoutingModule } from './ticket-routing-module';
-import { CreateMovieComponent } from './pages/movie/create-movie/create-movie.component';
 import { AngularMaterialModule } from 'src/app/shared/modules/angular-material.module';
+
+import { TicketComponent } from './ticket.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MovieService } from 'src/app/services/movie/movie.service';
+import { PagesModule } from './pages/pages.module';
 
 
 @NgModule({
-  declarations: [MovieComponent, CreateMovieComponent,],
+  declarations: [TicketComponent],
   imports: [
     CommonModule,
     TicketRoutingModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    FlexLayoutModule,
+  
 
   ],
-  exports: [MovieComponent, CreateMovieComponent],
+  exports: [TicketComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [MovieService,]
 
 })
 export class TicketModule {}

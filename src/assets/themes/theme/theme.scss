@@ -37,3 +37,9 @@ $app-typography: mat-typography-config(
     color: mat-contrast($primary, 500);
   }
 }
+
+@mixin  color-link($color) {
+  a{
+    color: mat-color($color);
+  }
+}
