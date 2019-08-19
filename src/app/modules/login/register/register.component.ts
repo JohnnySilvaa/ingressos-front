@@ -18,13 +18,13 @@ export class RegisterComponent implements OnInit {
 
   Roles: any = ['Admin', 'Comprador']
 
- ngOnInit() {
+  ngOnInit() {
     this.registerForm = this.formBuilder.group({
       email: [null, Validators.required],
       password: [null, Validators.required],
     });
   }
-  
+
   onFormSubmit(form: NgForm) {
     this.authService.register(form)
       .subscribe(res => {
