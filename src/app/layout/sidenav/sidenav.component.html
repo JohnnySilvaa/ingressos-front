@@ -1,10 +1,13 @@
 <mat-sidenav-container>
-    <mat-sidenav #sidenav class="sidenav" mode="side">
+    <mat-sidenav #sidenav class="sidenav" mode="over">
         <mat-nav-list>
             <mat-nav-list>
-                <h4 matLine routerLink="/home" [routerLinkActiveOptions]="{ exact: true }"
-                    routerLinkActive="active-link">
+                <h4 matLine routerLink="." [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-link">
                     Home
+                </h4>
+                <h4 matLine routerLink="sections" [routerLinkActiveOptions]="{ exact: true }"
+                    routerLinkActive="active-link">
+                    Sections
                 </h4>
             </mat-nav-list>
         </mat-nav-list>
@@ -60,13 +63,11 @@
                 </div>
             </mat-toolbar-row>
         </mat-toolbar>
-        <div fxLayout="column">
-            <header class="{{getColorHeader()}} title">
+            <header class="{{getColorHeader()}}">
                 <h2>{{getTitle()}}</h2>
             </header>
-            <main fxLayoutAlign="center center">
+            <main>
                 <router-outlet></router-outlet>
             </main>
-        </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

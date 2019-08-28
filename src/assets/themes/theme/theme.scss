@@ -38,8 +38,10 @@ $app-typography: mat-typography-config(
   }
 }
 
+
 @mixin  color-link($color) {
   a{
     color: mat-color($color);
   }
 }
+

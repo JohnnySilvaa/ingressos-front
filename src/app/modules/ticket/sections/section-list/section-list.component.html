@@ -1,0 +1,25 @@
+<mat-accordion [displayMode]="'flat'">
+    <mat-expansion-panel [expanded]="ingProject.isActive">
+        <mat-expansion-panel-header>
+            <mat-panel-title r
+                outerLink="/sections" 
+                routerLinkActive="active-link" 
+                (click)="$event.stopPropagation()"
+                #ingProject="routerLinkActive"
+                >Sections
+
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-nav-list>
+            <a 
+                mat-list-item 
+                [routerLink]="['/sections', section.id]"
+                routerLinkActive="active-link"
+                *ngFor="let section of (sectionList | async)">
+                <h4 mat-line>{{section.id}}</h4>
+            </a>
+        </mat-nav-list>
+
+    </mat-expansion-panel>
+</mat-accordion>

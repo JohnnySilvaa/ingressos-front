@@ -1,16 +1,12 @@
 @import '../../../assets/themes/theme/theme.scss';
 
-.title {
-    color: white
-}
-  
   mat-sidenav-container {
     position: fixed;
     height: 100%;
     width: 100%;
   }
   
-  mat-sidenav {
+  mat-sidenav{
     position: fixed;
     top: 64px;
     bottom: 0;
@@ -38,7 +34,6 @@
     0px 6px 10px 0px rgba(0, 0, 0, 0.14), 
     0px 1px 18px 0px rgba(0, 0, 0, 0.12);  
     font-size: 20px;
-
   }
 
   .color-swatch-primary, .header-app-theme{
@@ -55,39 +50,38 @@
     background-color: mat-color($app-theme-deep-purple-primary);
   }
 
-  
-
   head{
     background-color: $header-blue;
   }
 
-  header{
-   padding-left: 20px; 
-   display: flex;
-   justify-content: flex-start; 
-  }
+h4{
+  color: white;
+  cursor: pointer;
+}
 
-  h4{
-    color: white;
-    cursor: pointer;
-  }
+.toolbar-start{  
+    width: 30%;
+    a{
+      color: white;
+      font-weight: normal;
+      text-decoration: none;
+    }
+}
 
-  .toolbar-start{  
-      width: 30%;
-      a{
-        color: white;
-        font-weight: normal;
-        text-decoration: none;
-      }
+.toolbar-end{
+  width: 17%;
+}
+
+#main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   
-  }
-
-  .toolbar-end{
-    width: 17%;
-  }
-
-  main{
-    margin: 30px;
-  }
-
+}
+header{
+  color: white;
+  display: flex;
+  justify-content: center;
+}
   

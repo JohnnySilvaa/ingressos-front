@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { WelcomeRoutingModule } from './welcome-routing.module';
 import { WelcomeComponent } from './welcome.component';
 import { RouterModule } from '@angular/router';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -11,7 +12,10 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     WelcomeRoutingModule,
-    RouterModule
+    RouterModule,
+    FlexLayoutModule
+
+    
   ],
   exports: [WelcomeComponent]
 })

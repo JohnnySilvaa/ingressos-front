@@ -1,15 +1,10 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-
-import { TicketRoutingModule } from './ticket-routing-module';
+import { TicketRoutingModule } from './ticket-routing.module';
 import { AngularMaterialModule } from 'src/app/shared/modules/angular-material.module';
-
+import { RouterModule } from '@angular/router';
 import { TicketComponent } from './ticket.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { MovieService } from 'src/app/services/movie/movie.service';
-import { PagesModule } from './pages/pages.module';
 
 
 @NgModule({
@@ -18,13 +13,15 @@ import { PagesModule } from './pages/pages.module';
     CommonModule,
     TicketRoutingModule,
     AngularMaterialModule,
-    FlexLayoutModule,
-  
-
+    RouterModule
   ],
-  exports: [TicketComponent],
+  exports: [AngularMaterialModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [MovieService,]
+
 
 })
-export class TicketModule {}
+export class TicketModule { }
+
+
+
+

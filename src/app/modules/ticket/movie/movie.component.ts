@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 
-import { MovieService } from '../../../../services/movie/movie.service';
+import { MovieService } from '../../../services/movie/movie.service';
 import { MovieModel } from 'src/app/shared/models/movie.model';
 import { AuthService } from 'src/app/shared/auth/auth.service';
 
