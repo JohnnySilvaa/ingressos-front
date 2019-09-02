@@ -5,11 +5,15 @@ service cloud.firestore {
     }
     match /sections/{sectionId} {
       allow read: if true;
+
+      match /room/{roomId} {
+        allow read: if true;
+      }
+      match /seats/{seatId} {
+        allow read: if true;
+      }
     }
-   match /room/{roomId} {
-      allow read: if true;
-    }
-    match /seats/{seatId} {
+    match /movies/{movieId} {
       allow read: if true;
     }
   }

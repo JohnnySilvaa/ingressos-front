@@ -13,4 +13,14 @@
       <mat-card-content> {{ seat.position }} </mat-card-content>
     </mat-card>
   </mat-card-content>
+
+  <mat-card-actions>
+    <button
+      mat-raised-button
+      color="primary"
+      [routerLink]="['/sections', sectionId, 'edit']"
+    >
+      Edit
+    </button>
+  </mat-card-actions>
 </mat-card>

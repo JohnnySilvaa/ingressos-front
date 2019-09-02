@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore'
+import { AngularfirebaseService } from 'src/app/shared/helpers/angularfirebase.service';
+import { SectionModel } from 'src/app/shared/models/section.model';
 import { Observable } from 'rxjs';
-import { SectionModel } from '../models/section.model';
-import { AngularfirebaseService } from './angularfirebase.service';
-import { RoomModel } from '../models/room.model';
-import { SeatModel } from '../models/seat.model';
-
+import { RoomModel } from 'src/app/shared/models/room.model';
+import { SeatModel } from 'src/app/shared/models/seat.model';
+import { ConfigSection } from 'src/app/shared/models/config-section';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FirestoreService {
+export class SectionService {
 
-  constructor(private fs: AngularFirestore, private afb: AngularfirebaseService) { }
+  constructor(private afb: AngularfirebaseService) { }
+
+
 
   getSections() {
     return this.afb.colWithIds$<SectionModel[]>('sections');
@@ -41,15 +42,9 @@ export class FirestoreService {
     return this.afb.doc$<SeatModel>(`sections/${sectionId}/room/${roomId}/seats/${seatId}`);
   }
 
+  //configs
+  getConfigSection(): Observable<ConfigSection>{
+    return this.afb.doc$<ConfigSection>(`config/section/`)
+
+  }
 }
-
-
-
-
-
-
-
-
-
-
-

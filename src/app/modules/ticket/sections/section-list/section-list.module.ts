@@ -14,7 +14,6 @@ import { RouterModule } from '@angular/router';
     SectionListRoutingModule,
     MatListModule,
     RouterModule,
-    RouterModule,
     MatExpansionModule,
     MatToolbarModule
   ]

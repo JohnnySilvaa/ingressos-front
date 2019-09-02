@@ -1,8 +1,8 @@
 <mat-accordion [displayMode]="'flat'">
     <mat-expansion-panel [expanded]="ingProject.isActive">
         <mat-expansion-panel-header>
-            <mat-panel-title r
-                outerLink="/sections" 
+            <mat-panel-title 
+                routerLink="/sections" 
                 routerLinkActive="active-link" 
                 (click)="$event.stopPropagation()"
                 #ingProject="routerLinkActive"
@@ -20,6 +20,28 @@
                 <h4 mat-line>{{section.id}}</h4>
             </a>
         </mat-nav-list>
+    </mat-expansion-panel>
 
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title r
+                outerLink="/movies" 
+                routerLinkActive="active-link" 
+                (click)="$event.stopPropagation()"
+                #ingProject="routerLinkActive"
+                >Movies
+
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-nav-list>
+            <a 
+                mat-list-item 
+                [routerLink]="['/movies', movie.id]"
+                routerLinkActive="active-link"
+                *ngFor="let movie of (movieList | async)">
+                <h4 mat-line>{{movie.id}}</h4>
+            </a>
+        </mat-nav-list>
     </mat-expansion-panel>
 </mat-accordion>

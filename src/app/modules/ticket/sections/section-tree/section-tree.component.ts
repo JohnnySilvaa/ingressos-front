@@ -5,10 +5,10 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { CollectionViewer, SelectionChange } from '@angular/cdk/collections';
 import { map, tap, take } from 'rxjs/operators';
 
-import { FirestoreService } from 'src/app/shared/helpers/firestore.service';
 import { SectionModel } from 'src/app/shared/models/section.model';
 import { RoomModel } from 'src/app/shared/models/room.model';
 import { SeatModel } from 'src/app/shared/models/seat.model';
+import { SectionService } from 'src/app/services/section/section.service';
 
 export class DynamicFlatNode {
   constructor(
@@ -38,7 +38,7 @@ export class DynamicDataSource {
   constructor(
     private treeControl: FlatTreeControl<DynamicFlatNode>,
     private route: ActivatedRoute,
-    private fs: FirestoreService,
+    private sectionService: SectionService,
     private router: Router
   ) {
     /** Initial data from database */
@@ -50,7 +50,7 @@ export class DynamicDataSource {
     this.subscriptions.push(
       this.route.paramMap.subscribe(paramMap => {
         const sectionId = paramMap.get('sectionId');
-        this.fs.getSectionRooms(sectionId).subscribe(rooms => {
+        this.sectionService.getSectionRooms(sectionId).subscribe(rooms => {
           const nodes: DynamicFlatNode[] = [];
           rooms.sort((a, b) => (a.sort < b.sort ? -1 : 1));
           rooms.forEach(room =>
@@ -107,7 +107,7 @@ export class DynamicDataSource {
     node.isLoading = true;
     if (expand) {
       this.subscriptions.push(
-        this.fs
+        this.sectionService
           .getSectionSeats(node.section.id, node.room.id)
           .subscribe(async seats => {
             console.log(seats);
@@ -169,7 +169,7 @@ export class SectionTreeComponent implements OnInit, OnDestroy {
   dataSource: DynamicDataSource;
   constructor(
     private route: ActivatedRoute,
-    private fs: FirestoreService,
+    private sectionService: SectionService,
     private router: Router
   ) {
     this.treeControl = new FlatTreeControl<DynamicFlatNode>(
@@ -179,7 +179,7 @@ export class SectionTreeComponent implements OnInit, OnDestroy {
     this.dataSource = new DynamicDataSource(
       this.treeControl,
       this.route,
-      this.fs,
+      this.sectionService,
       this.router
     );
   }

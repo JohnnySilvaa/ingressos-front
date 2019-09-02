@@ -8,10 +8,23 @@ const routes: Routes = [
     path: '', 
     component: SectionsComponent,
     children: [
-     {path: '', loadChildren: ()=>import('./section-list/section-list.module').then(sl=>sl.SectionListModule)},
-     {path: ':sectionId', loadChildren: ()=>import('./section-detail/section-detail.module').then(sd=>sd.SectionDetailModule)}
-
+     {
+       path: '', 
+       loadChildren: ()=>import('./section-list/section-list.module')
+       .then(sl=>sl.SectionListModule)
+      },
+      {
+        path: ':sectionId/edit', 
+        loadChildren: ()=>import('./section-edit/section-edit.module')
+        .then(se=>se.SectionEditModule)
+       },
+     {
+       path: ':sectionId', 
+       loadChildren: ()=>import('./section-detail/section-detail.module')
+       .then(sd=>sd.SectionDetailModule)
+      },
     ],
+    
     data: {title: 'Sessões'}
   }
 ];

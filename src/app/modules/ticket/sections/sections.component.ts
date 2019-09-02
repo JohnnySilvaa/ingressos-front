@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-sections',
@@ -8,8 +9,19 @@ import { Component, OnInit } from '@angular/core';
 export class SectionsComponent implements OnInit {
 
   constructor() { }
+  showSectionsDrawer$ = new BehaviorSubject(false);
 
   ngOnInit() {
+  }
+
+
+  onSectionsDrawerActivate(e) {
+    console.log("Route Activate")
+    this.showSectionsDrawer$.next(true);
+  }
+  onSectionsDrawerDeactivate(e) {
+    console.log("Route Deactivate")
+    this.showSectionsDrawer$.next(false);
   }
 
 }
