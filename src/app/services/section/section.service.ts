@@ -47,4 +47,9 @@ export class SectionService {
     return this.afb.doc$<ConfigSection>(`config/section/`)
 
   }
+
+  updateSection(section: SectionModel): Promise<void>{
+    return this.afb.update(`sections/${section.id}`, section)
+
+  }
 }

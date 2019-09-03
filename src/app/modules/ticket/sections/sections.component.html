@@ -1,5 +1,5 @@
 <mat-drawer-container>
-    <mat-drawer [opened]="showSectionsDrawer$ | async " mode="side">
+    <mat-drawer [opened]="showSectionsDrawer$ | async" mode="side">
         <router-outlet 
             name="section-drawer"
             (activate)="onSectionsDrawerActivate($event)"

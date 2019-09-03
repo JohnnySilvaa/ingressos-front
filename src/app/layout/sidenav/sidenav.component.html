@@ -2,10 +2,15 @@
     <mat-sidenav #sidenav class="sidenav" mode="over">
         <mat-nav-list>
             <mat-nav-list>
-                <h4 matLine routerLink="." [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active-link">
+                <h4 
+                    matLine routerLink="." 
+                    [routerLinkActiveOptions]="{ exact: true }"
+                     routerLinkActive="active-link">
                     Home
                 </h4>
-                <h4 matLine routerLink="sections" [routerLinkActiveOptions]="{ exact: true }"
+                <h4 
+                    matLine routerLink="sections" 
+                    [routerLinkActiveOptions]="{ exact: true }"
                     routerLinkActive="active-link">
                     Sections
                 </h4>
@@ -15,7 +20,10 @@
     <mat-sidenav-content>
         <mat-toolbar color="primary">
             <mat-toolbar-row fxLayoutAlign="space-between center">
-                <div fxLayoutAlign="space-between center" class="toolbar-start">
+                <div 
+                    fxLayoutAlign="space-between center"
+                    class="toolbar-start"
+                >
                     <button mat-icon-button>
                         <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
                     </button>
@@ -29,9 +37,15 @@
                         <a routerLink="login">Login</a>
                     </span>
                 </div>
-                <div fxLayoutAlign="space-between end" class="toolbar-end">
+                <div 
+                    fxLayoutAlign="space-between end" 
+                    class="toolbar-end"
+                >
                     <span>
-                        <button mat-icon-button [matMenuTriggerFor]="menu">
+                        <button 
+                            mat-icon-button 
+                            [matMenuTriggerFor]="menu"
+                        >
                             <mat-icon>format_color_fill</mat-icon>
                         </button>
 
@@ -51,7 +65,7 @@
                         </mat-menu>
                     </span>
                     <span>
-                        <a mat-icon-button href="https://github.com/JohnnySilvaa/ingressos-front">
+                        <a mat-icon-button href="https://github.com/johnnydev01/ingressos-front">
                             <mat-icon class="icon-github"></mat-icon>
                         </a>
                     </span>

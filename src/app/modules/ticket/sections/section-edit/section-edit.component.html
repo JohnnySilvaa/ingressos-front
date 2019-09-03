@@ -6,117 +6,189 @@
         *ngIf="(section$ | async); let section; else: spin"
         style="width: 75%; margin-bottom: 100px;" 
     >
-        <mat-card-content>
-            <div fxLayout="column" fxLayoutAlign="space-around stretch">
-                <section>
-                    <mat-form-field style="width: 100%">
-                        <input matInput placeholder="Name" [(ngModel)]="section.name"/>
-
-                    </mat-form-field>
-                </section>  
-
-                <section>
-                    <mat-slide-toggle
-                    [checked]="fictionSelected"
-                    (change)="fictionChange($event)"
-                    #ficToggle    
-                    >
-                        <p *ngIf="ficToggle.checked; else nonFic">Fiction</p>
-                    </mat-slide-toggle>
-                </section>
-                <section>
-                    <mat-form-field style="width: 100%">
-                        <input 
-                            name="genre"
-                            type="text"
-                            matInput
-                            [formControl]="genreControl"
-                            [matAutocomplete]="auto"
-                            placeholder="Gênero"
-                            aria-label="Gênero"
-                        />
-                    </mat-form-field>
-                    <mat-autocomplete #auto="matAutocomplete">
-                        <mat-option
+        <form
+            *ngIf="sectionForm"
+            [formGroup]="sectionForm"
+            (ngSubmit)="saveSectionChanges()"
+            fxLayout="column"
+        >
+            <mat-card-content>
+                <div fxLayout="column" fxLayoutAlign="space-around stretch">
+                    <section>
+                        <mat-form-field style="width: 100%">
+                                <input matInput placeholder="Name" formControlName="name" required/>
+                                
+                                <mat-error *ngIf="sectionForm.get('name').invalid">
+                                    O nome pode ter no máximo 50 caracters.
+                                 </mat-error>
+                            <mat-error *ngIf="sectionForm.get('name').invalid">
+                                O nome é <strong>obrigatório</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </section>
+                    
+                    <section>
+                        <mat-form-field style="width: 100%">
+                                <input matInput placeholder="Preço" formControlName="price" required/>
+                                
+                                <mat-error *ngIf="sectionForm.get('price').hasError('riquered')">
+                                    O Preço é obrigatório.
+                                </mat-error>
+                        </mat-form-field>
+                    </section>  
+                    
+                    <section>
+                        <mat-slide-toggle
+                        [checked]="fictionSelected"
+                        (change)="fictionChange($event)"
+                        #ficToggle    
+                        >
+                            <p *ngIf="ficToggle.checked; else nonFic">Fiction</p>
+                        </mat-slide-toggle>
+                    </section>
+                    <section>
+                        <mat-form-field style="width: 100%">
+                                <input 
+                                name="genre"
+                                type="text"
+                                matInput
+                                [matAutocomplete]="auto"
+                                placeholder="Gênero"
+                                aria-label="Gênero"
+                                formControlName="genre"
+                            />
+                            <mat-error *ngIf="sectionForm.get('genre').hasError('riquered')"> 
+                                Gênero é <strong>brigatório</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-autocomplete #auto="matAutocomplete">
+                            <mat-option
                             *ngFor="let genre of (genreList$ | async)"
                             [value]="genre"    
-                        >
-                        {{ genre }}
-                    </mat-option>
+                            >
+                            {{ genre }}
+                        </mat-option>
 
                     </mat-autocomplete>
-                </section>
-
-                <section *ngIf="(sectionConfig$ | async); let sectionConfig">
-                    <h3>Opções</h3>
-                    <div fxLayout="column">
-                        <mat-checkbox [(ngModel)]="sectionConfig.options.hasAudio">
-                            Audio
-                        </mat-checkbox>
-                        <mat-checkbox [(ngModel)]="sectionConfig.options.hasPhotos">
-                            Fotos
-                        </mat-checkbox>
-                        <mat-checkbox [(ngModel)]="sectionConfig.options.hasVideos">
-                            Videos
-                        </mat-checkbox>
-                    </div>
-                </section>
-                <section>
-                    <mat-form-field>
-                        <input 
-                            matInput
-                            [matDatepicker]="picker"
-                            placeholder="Informe a data"
-                        >
-                        <mat-datepicker-toggle
-                            matSuffix
-                            [for]="picker"
-                        >
-                        </mat-datepicker-toggle>
-                        <mat-datepicker #picker></mat-datepicker>
-                    </mat-form-field>
-                </section>
-
-                <section>
-                    <mat-form-field style="width: 100%">
-                        <mat-select placeholder="Idade para categoria">
-                            <mat-option
+                    </section>
+                    
+                    <section *ngIf="(sectionConfig$ | async); let sectionConfig">
+                        <h3>Opções</h3>
+                        <div fxLayout="column">
+                            <mat-checkbox formControlName="hasAudio">
+                                Audio
+                            </mat-checkbox>
+                            <mat-checkbox formControlName="hasPhotos">
+                                Fotos
+                            </mat-checkbox>
+                            <mat-checkbox formControlName="hasVideos">
+                                Videos
+                            </mat-checkbox>
+                        </div>
+                    </section>
+                    <section>
+                        <mat-form-field>
+                            <input 
+                                matInput
+                                [matDatepicker]="picker"
+                                placeholder="Informe a data"
+                                name="time"
+                                formControlName="time"
+                                >
+                                <mat-datepicker-toggle
+                                matSuffix
+                                [for]="picker"
+                            >
+                            </mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </section>
+                    
+                    <section>
+                        <mat-form-field style="width: 100%">
+                            <mat-select 
+                                placeholder="Idade para categoria"
+                                formControlName="ageCategory"
+                                >
+                                <mat-option
                                 *ngFor="let ageCategory of (sectionConfig$ | async)?.ageCategory"
                                 [value]="ageCategory"
-                            >
-                            {{ageCategory}}
-                        </mat-option>
+                                >
+                                {{ageCategory}}
+                            </mat-option>
                         </mat-select>
-                    </mat-form-field>
-                </section>
+                            <mat-error *ngIf="sectionForm.get('ageCategory').hasError('riquered')">
+                                 A categoria de idade é<strong>required</strong> 
+                            </mat-error>
+                        </mat-form-field>
+                    </section>
+                    
+                    <section>
+                        <h3>Taxa</h3>
+                        <mat-slider
+                            min="1"
+                            max="5"
+                            step="0.5"
+                            value="1.5"
+                            formControlName="rating"
+                        >
+                        <mat-error *ngIf="sectionForm.get('rating').hasError('riquered')">
+                            A taxa é <strong>obrigatório</strong>
+                        </mat-error>
 
-                <section>
-                    <h3>Taxa</h3>
-                    <mat-slider
-                        min="1"
-                        max="5"
-                        step="0.5"
-                        value="1.5"
-                        [(ngModel)]="sectionRating"
+                        </mat-slider>
+                    </section>
+                    
+                    <section>
+                        <h3>Status</h3>
+                        <mat-radio-group
+                            formControlName="status"
+                            fxLayout="column"
+                        >
+                            <mat-radio-button value="Documentary">Documentário</mat-radio-button>
+                            <mat-radio-button value="Recorded">Gravado</mat-radio-button>
+                        </mat-radio-group>
+                        <mat-error *ngIf="sectionForm.get('status').hasError('riquered')">
+                            O Status é <strong>obrigatório</strong>
+                        </mat-error>
+                    </section>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                
+                <div fxLayout="row" fxLayoutAling="space-around center">
+
+                    <button
+                        mat-raised-button
+                        color="primary"
+                        type="submit"
+                        [disabled]="sectionForm.pristine || !sectionForm.valid"
+                        aria-label="Save"
+                        >   Salvar
+                    </button> 
+                    
+                    <button
+                    mat-raised-button
+                    color="accent"
+                    type="button"
+                        (click)="revert()"
+                        [disabled]="sectionForm.pristine"
+                        aria-label="Revert"
+                        >
+                        Reverter
+                    </button>
+                    
+                    <button
+                    mat-raised-button
+                    color="warm"
+                        [routerLink]="['/sections', section.id]"
+                        aria-label="Cancel"
                     >
-
-                    </mat-slider>
-                </section>
-
-                <section>
-                    <h3>Status</h3>
-                    <mat-radio-group
-                        [(ngModel)]="sectionStatus"
-                        fxLayout="column"
-                    >
-                        <mat-radio-button value="Documentary">Documentário</mat-radio-button>
-                        <mat-radio-button value="Recorded">Gravado</mat-radio-button>
-                    </mat-radio-group>
-                </section>
-
-            </div>
-        </mat-card-content>
-        <mat-card-actions> <button mat-button>Ok</button> </mat-card-actions>
+                    Cancelar
+                    </button>
+                </div>  
+            </mat-card-actions>
+        </form>
     </mat-card>
 </div>
 <ng-template #spin>
