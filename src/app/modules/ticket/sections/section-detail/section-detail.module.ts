@@ -5,7 +5,7 @@ import { SectionDetailRoutingModule } from './section-detail-routing.module';
 import { SectionDetailComponent } from './section-detail.component';
 import { SectionDrawerModule } from '../section-drawer/section-drawer.module';
 import { FlexModule } from '@angular/flex-layout';
-import { MatCardModule } from '@angular/material';
+import { MatCardModule, MatIconModule } from '@angular/material';
 
 
 @NgModule({
@@ -15,7 +15,8 @@ import { MatCardModule } from '@angular/material';
     SectionDetailRoutingModule,
     SectionDrawerModule,
     FlexModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule
   ]
 })
 export class SectionDetailModule { }

@@ -9,5 +9,18 @@
     </mat-drawer>
     <mat-drawer-content>
             <router-outlet></router-outlet>
+
+
+            <button
+                mat-fab
+                color="accent"
+                class="app-fab--absolute"
+                routerLink="/sections/new"
+                aria-label="Adicionar"
+                *ngIf="(showSectionsAdd$ | async)"
+            >
+            <mat-icon aria-label="Adicionar Seção">add</mat-icon>
+
+            </button>
     </mat-drawer-content>
 </mat-drawer-container>

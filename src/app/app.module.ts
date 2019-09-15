@@ -12,12 +12,12 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import { AppRoutingModule } from './shared/routes/app-routing.module';
 import { TitleService } from './shared/helpers/title.service';
-import { AuthGuardService } from './shared/auth/auth-guard.service';
 import { environment } from 'src/environments/environment';
 import { AngularMaterialModule } from './shared/modules/angular-material.module';
 import { SidenavComponent } from './layout/sidenav/sidenav.component';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 
 @NgModule({
@@ -39,14 +39,15 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     AngularFireModule.initializeApp(environment.firebaseConfig), // cofig keys firebase
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AngularFireDatabaseModule
+    AngularFireAuthModule,
+    
+    
     
   ],
   exports: [],
   providers: [
     Title,
     TitleService,
-    AuthGuardService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

@@ -1,20 +1,50 @@
+ 
 service cloud.firestore {
   match /databases/{database}/documents {
     match /{document=**} {
-      allow read, write;
+    	allow write: if false;
+      allow read;
     }
-    match /sections/{sectionId} {
+    // This function allows us to look at AuthZ (Authorization) roles within our database, to see who is allowed for activities.
+    function getRole(role) {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.roles[role]
+    }
+    // Users
+    match /users/{userId} {
+      allow read: if request.auth.uid != null;
+      allow create: if request.resource.data.roles.keys().hasAny(['admin', 'buyes']) == false;
+      allow update: if request.resource.data.roles.keys().hasAny(['admin', 'buyer']) == false
+      							|| resource.data.roles.keys().hasAny(['admin', 'buyer']) == true;
+    }
+    match /config/{configId}{
       allow read: if true;
+    }
 
-      match /room/{roomId} {
-        allow read: if true;
-      }
-      match /seats/{seatId} {
-        allow read: if true;
+    match /sections/{sectionId}{
+      allow create: if getRole('admin') == true;
+      allow read: if  true;
+      allow update: if getRole('admin') == true;
+      allow delete: if getRole('admin') == true;
+
+      match /rooms/{roomId}{
+        allow create: if getRole('admin') == true;
+      	allow read: if  true;
+        allow update: if getRole('admin') == true;
+        allow delete: if getRole('admin') == true;
+
+        match /seats/{seatId}{
+          allow create: if getRole('admin') == true;
+     			allow read: if  true;
+          allow update: if getRole('admin') == true;
+          allow delete: if getRole('admin') == true;
+        }
       }
     }
-    match /movies/{movieId} {
-      allow read: if true;
+    match /movies/{movieId}{
+        allow create: if getRole('admin') == true;
+      	allow read: if  true;
+        allow update: if getRole('admin') == true;
+        allow delete: if getRole('admin') == true;
     }
   }
 }

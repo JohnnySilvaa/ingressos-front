@@ -39,7 +39,6 @@
                     
                     <section>
                         <mat-slide-toggle
-                        [checked]="fictionSelected"
                         (change)="fictionChange($event)"
                         #ficToggle    
                         >
@@ -191,6 +190,7 @@
         </form>
     </mat-card>
 </div>
+<ng-template #nonFic>Non-Fiction</ng-template>
 <ng-template #spin>
     <mat-spinner></mat-spinner>
 </ng-template>

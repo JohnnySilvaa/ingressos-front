@@ -13,7 +13,8 @@ import {
     MatFormField,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSnackBarModule
 } 
 from '@angular/material';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -32,7 +33,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
         MatCardModule,
         MatFormFieldModule,
         MatInputModule,
-        MatSelectModule
+        MatSelectModule,
+        MatSnackBarModule
     ],
     exports: [
         MatMenuModule,

@@ -110,6 +110,9 @@ export class SectionEditComponent implements OnInit, OnDestroy {
       // this.rebuildForm();
     }
 
+    fictionChange(e) {
+      this.sectionForm.patchValue({ genre: '' }, { onlySelf: true });
+    }
     ngOnDestroy(): void {
       this.subs.forEach(sub => {
         sub.unsubscribe();

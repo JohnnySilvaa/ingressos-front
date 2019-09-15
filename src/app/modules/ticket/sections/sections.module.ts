@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { SectionsRoutingModule } from './sections-routing.module';
 import { SectionsComponent } from './sections.component';
-import { MatSidenavModule } from '@angular/material';
+import { MatSidenavModule, MatButtonModule, MatIconModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -14,6 +15,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     SectionsRoutingModule,
     MatSidenavModule,
     FlexLayoutModule,
+    MatButtonModule,
+    RouterModule,
+    MatIconModule
   ]
 })
 export class SectionsModule { }

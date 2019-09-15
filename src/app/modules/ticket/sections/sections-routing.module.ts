@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SectionsComponent } from './sections.component';
+import { AuthCanEditGuard } from 'src/app/shared/auth/auth-can-edit.guard';
 
 
 const routes: Routes = [
@@ -14,9 +15,19 @@ const routes: Routes = [
        .then(sl=>sl.SectionListModule)
       },
       {
+        path:'undefined',
+        redirectTo: ''
+      },
+      {
+        path:'new',
+        redirectTo: 'undefined/edit'
+      },
+      {
         path: ':sectionId/edit', 
         loadChildren: ()=>import('./section-edit/section-edit.module')
-        .then(se=>se.SectionEditModule)
+        .then(se=>se.SectionEditModule),
+        canLoad: [AuthCanEditGuard]
+
        },
      {
        path: ':sectionId', 
